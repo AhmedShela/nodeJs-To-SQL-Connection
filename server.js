@@ -4,14 +4,14 @@ const express = require('express');
 const sql = require('mssql');
 const server = express();
 server.set('view engine','ejs');
-const PORT =  3000;
+const PORT =  process.env.PORT || 3000;
 const config = {
-	server: '192.168.1.8',
+	server: process.env.SERVER,
 	authentication: {
 		type: 'default',
 		options: {
-			userName: 'sa',
-			password: '123',
+			userName: process.env.USER_NAME,
+			password: process.env.PASS,
 		},
 	},
 	options: {
